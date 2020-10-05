@@ -4,8 +4,7 @@
 #####  For this project, we are looking to answer the following question: What is the most reliable predictor that can be used to predict the success of an IPO? Potential predictors include industries/sectors, locations, the number of years the company had been operating before going IPO, which day of the week the stock went public on.
  
 ### 2. Dataset Description:
-#####  The link to the data set: 
-       https://www.kaggle.com/proselotis/financial-ipo-data
+#####  The link to the data set: <https://www.kaggle.com/proselotis/financial-ipo-data>
 #####  The dataset we collected is from Kaggle, which is called Stocks IPO Information and Results. The dataset contains data for 3762 different stock tickers, with parameters including:
 #####  (1) The date the company went public
 #####  (2) Price data since the IPO, including:
