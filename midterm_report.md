@@ -55,7 +55,7 @@ Regarding metrics for regression, we used the R<sup>2</sup> value to assess the 
 
 #### a) Linear Regression with Feature Engineering:
 
-Linear Regression was first attempted to predict a continuous value for the price of the post-IPO stock at closing of day 0. The features used were ‘Month’, ‘Day'’, ‘dayOfWeek’, ‘yearDifference’, ‘employees’, ‘CEOAge’, ‘PresidentAge’, ‘openDay0’, ‘CEOGender’, ‘PresidentGender’, ‘Industry’ and ‘Sector’. The predictor in this case would be the closing price of the stock at day 0.
+Linear Regression was first attempted to predict a continuous value for the price of the post-IPO stock at closing of day 0. The features used were ‘Month’, ‘Day'’, ‘dayOfWeek’, ‘yearDifference’, ‘employees’, ‘CEOAge’, ‘PresidentAge’, ‘openDay0’, ‘CEOGender’, ‘PresidentGender’, ‘Industry’ and ‘Sector’. The predictor in this case would be the closing price of the stock at day 0. We chose these features because they were the only information that was available to the public pre-IPO.
 
 For feature engineering, we chose to transform several nominal features. Since CEOGender, PresidentGender, Industry and Sector are categorical data, we used one-hot-encoding in order to include them in the linear model. Our resulting matrix therefore included 1147 rows and 141 columns.
 
