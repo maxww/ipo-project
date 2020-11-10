@@ -64,9 +64,7 @@ Initial running of the linear regression model resulted in an R<sup>2</sup> valu
 Figure 1: Linear Regression Model
 [![P5.jpg](https://i.postimg.cc/Jz5TMM94/P5.jpg)](https://postimg.cc/w135k8qS)
 
-We decided to run cross-validation to confirm the results.
-
-5 fold cross validation was performed in order to prevent overfitting, and the R<sup>2</sup> values we obtained for our prediction were [0.9428164374024275, 0.5304734058315419, -41.38543478397166, 0.9967644470907266, -0.8877929292159177]. As seen from our R<sup>2</sup> values, the model performs well in two folds, decently in one, and terribly in the last two. 
+We decided to run cross-validation to confirm the results. 5 fold cross validation was performed in order to prevent overfitting, and the R<sup>2</sup> values we obtained for our prediction were [0.9428164374024275, 0.5304734058315419, -41.38543478397166, 0.9967644470907266, -0.8877929292159177]. As seen from our R<sup>2</sup> values, the model performs well in two folds, decently in one, and terribly in the last two. 
 
 From the results above, it can be interpreted that regression might be too challenging with our current amount of data. This led us to think - would our model perform better if we only considered whether the price had gone up or down? We could therefore reframe the problem into one of classification, where we would try to predict an increase or decrease in the stock price post-opening rather than a continuous value. A new dataframe was thus created with the predictions and actual values, as well as the predicted and actual difference between open and close. This resulted in an accuracy score of approximately 60.58%. We tried re-running the model several times and noticed that the accuracy score consistently lied in the range of 60%-70%. We also noticed that a large portion of the values predicted were higher than the true values.
 
