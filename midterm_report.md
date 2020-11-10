@@ -49,7 +49,7 @@ After cleaning, we were left with 1147 rows and 279 columns.
 
 In order to avoid overfitting/underfitting, we chose to use 5-fold cross validation to evaluate whether our models performed poorly on unseen data. 
 
-Regarding metrics for regression, we used the r<sup>2</sup> value to assess the effectiveness of the model on test data. For classification, we decided to use the accuracy score.    
+Regarding metrics for regression, we used the R<sup>2</sup> value to assess the effectiveness of the model on test data. For classification, we decided to use the accuracy score.    
 
 ### **5. Feature Selection & Preliminary Analyses:**
 
@@ -59,25 +59,25 @@ Linear Regression was first attempted to predict a continuous value for the pric
 
 For feature engineering, we chose to transform several nominal features. Since CEOGender, PresidentGender, Industry and Sector are categorical data, we used one-hot-encoding in order to include them in the linear model. Our resulting matrix therefore included 1147 rows and 141 columns.
 
-Initial running of the linear regression model resulted in an r<sup>2</sup> value of 0.9963285561541619 and the graph below.
+Initial running of the linear regression model resulted in an R<sup>2</sup> value of -14.593315328876882 and the graph below.
 
 Figure 1: Linear Regression Model
-[![linear.png](https://i.postimg.cc/Kct0LJcx/linear.png)](https://postimg.cc/SjNLbLzv)
+[![P5.jpg](https://i.postimg.cc/Jz5TMM94/P5.jpg)](https://postimg.cc/w135k8qS)
 
-However, while this result seems really good on paper, we must run cross-validation to confirm the results.
+We decided to run cross-validation to confirm the results.
 
-5 fold cross validation was performed in order to prevent overfitting, and the r<sup>2</sup> values we obtained for our prediction were [0.9428164374024275, 0.5304734058315419, -41.38543478397166, 0.9967644470907266, -0.8877929292159177]. As seen from our r<sup>2</sup> values, the model performs well in two folds, decently in one, and terribly in the last two. 
+5 fold cross validation was performed in order to prevent overfitting, and the R<sup>2</sup> values we obtained for our prediction were [0.9428164374024275, 0.5304734058315419, -41.38543478397166, 0.9967644470907266, -0.8877929292159177]. As seen from our R<sup>2</sup> values, the model performs well in two folds, decently in one, and terribly in the last two. 
 
-From the results above, it can be interpreted that regression might be too challenging with our current amount of data. This led us to think - would our model perform better if we only considered whether the price had gone up or down? We could therefore reframe the problem into one of classification, where we would try to predict an increase or decrease in the stock price post-opening rather than a continuous value. A new dataframe was thus created with the predictions and actual values, as well as the predicted and actual difference between open and close. This resulted in an accuracy score of approximately 70.43%. We tried re-running the model several times and noticed that the accuracy score consistently lied in the range of 60%-70%. We also noticed that a large portion of the values predicted were higher than the true values.
+From the results above, it can be interpreted that regression might be too challenging with our current amount of data. This led us to think - would our model perform better if we only considered whether the price had gone up or down? We could therefore reframe the problem into one of classification, where we would try to predict an increase or decrease in the stock price post-opening rather than a continuous value. A new dataframe was thus created with the predictions and actual values, as well as the predicted and actual difference between open and close. This resulted in an accuracy score of approximately 60.58%. We tried re-running the model several times and noticed that the accuracy score consistently lied in the range of 60%-70%. We also noticed that a large portion of the values predicted were higher than the true values.
 
 #### b) Random Forest Regression with Feature Engineering:
 
-According to a research paper that was trying to predict the failures of IPO, random forest regression might perform better compared to linear regression in terms of predicting the closing price of the first day. We performed random forest regression with feature engineering with a very similar approach to linear regression. The initial run had an r<sup>2</sup> value of 0.8932314188939517, which looked very promising on paper. 
+According to a research paper that was trying to predict the failures of IPO, random forest regression might perform better compared to linear regression in terms of predicting the closing price of the first day. We performed random forest regression with feature engineering with a very similar approach to linear regression. The initial run had an R<sup>2</sup> value of 0.8932314188939517, which looked very promising on paper. 
 
-Figure2: Random Forest Model
+Figure 2: Random Forest Model
 [![random-forest.png](https://i.postimg.cc/rFQCCHBX/random-forest.png)](https://postimg.cc/w7Rm9wx0)
 
-However, after running 5-fold cross validation, we got r<sup>2</sup> values of [0.9999999975038855, -31.79573939717596, 0.9966313772775831, -15.481289453448529,  0.10929519824082756]. Results were therefore similar to the linear regression case. 
+However, after running 5-fold cross validation, we got R<sup>2</sup> values of [0.9999999975038855, -31.79573939717596, 0.9966313772775831, -15.481289453448529,  0.10929519824082756]. Results were therefore similar to the linear regression case. 
 
 Afterwards, we also reframed the random forest to a classification problem of whether the price increased or decreased. The resultant accuracy score was approximately 98.26%. We tried re-running the model several times and noticed that the accuracy score was hovering around 98% every time. This result supported the research's claim that the random forest regression model could give greater accuracy than linear regression model.
 
