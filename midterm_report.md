@@ -55,9 +55,13 @@ Regarding metrics for regression, we used the R<sup>2</sup> value to assess the 
 
 ### **5. Feature Selection & Preliminary Analyses:**
 
-#### a) Linear Regression with Feature Engineering:
+#### a) Feature Selection:
 
-Linear Regression was first attempted to predict a continuous value for the price of the post-IPO stock at closing of day 0. The features used were ‘Month’, ‘Day'’, ‘dayOfWeek’, ‘yearDifference’, ‘employees’, ‘CEOAge’, ‘PresidentAge’, ‘openDay0’, ‘CEOGender’, ‘PresidentGender’, ‘Industry’ and ‘Sector’. The predictor in this case would be the closing price of the stock at day 0. We chose these features because they were the only information that was available to the public pre-IPO.
+The features used were ‘Month’, ‘Day'’, ‘dayOfWeek’, ‘yearDifference’, ‘employees’, ‘CEOAge’, ‘PresidentAge’, ‘openDay0’, ‘CEOGender’, ‘PresidentGender’, ‘Industry’ and ‘Sector’. We chose these features because they were the only information that was available to the public pre-IPO. According to an expert we consulted, IPO's stock price could be very cyclical, hence we chose to include features such as ‘Month’, ‘Day'’, ‘dayOfWeek’. We also thought that investors would be more eager to invest in the company if they knew that the company's CEO and President's ages, which might indicate how experienced the management team was and how long they had been in the field. We thought that the CEO and President's genders might also be important since until the present day, women leaders are still not as highly regarded as male leaders. The industry and sector would also be crucial in predicting the stock price because investors tend to be more bullish to some industries and sectors than others. Finally, the market might show a keener interest in companies that had been around for while before going IPO because there would be more information about the company on the news compared to newly founded startups, hence we chose ‘yearDifference’ as one of our features.
+
+#### b) Linear Regression with Feature Engineering:
+
+Linear Regression was first attempted to predict a continuous value for the price of the post-IPO stock at closing of day 0. In this case, we were trying to predict the closing price of the stock at day 0. 
 
 For feature engineering, we chose to transform several nominal features. Since CEOGender, PresidentGender, Industry and Sector are categorical data, we used one-hot-encoding in order to include them in the linear model. Our resulting matrix therefore included 1147 rows and 141 columns.
 
@@ -70,7 +74,7 @@ We decided to run cross-validation to confirm the results. 5 fold cross validati
 
 From the results above, it can be interpreted that regression might be too challenging with our current amount of data. This led us to think - would our model perform better if we only considered whether the price had gone up or down? We could therefore reframe the problem into one of classification, where we would try to predict an increase or decrease in the stock price post-opening rather than a continuous value. A new dataframe was thus created with the predictions and actual values, as well as the predicted and actual difference between open and close. This resulted in an accuracy score of approximately 60.58%. We tried re-running the model several times and noticed that the accuracy score consistently lied in the range of 60%-70%. We also noticed that a large portion of the values predicted were higher than the true values.
 
-#### b) Random Forest Regression with Feature Engineering:
+#### c) Random Forest Regression with Feature Engineering:
 
 According to a research paper that was trying to predict the failures of IPO, random forest regression might perform better compared to linear regression in terms of predicting the closing price of the first day. We performed random forest regression with feature engineering with a very similar approach to linear regression. The initial run had an R<sup>2</sup> value of 0.8932314188939517, which looked very promising on paper. 
 
