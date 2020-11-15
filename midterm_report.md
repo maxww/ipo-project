@@ -13,7 +13,7 @@ This figure shows the statistics of the closing prices over day ranges 0-261 for
 
 [![P2.jpg](https://i.postimg.cc/3wYTc8sC/P2.jpg)](https://postimg.cc/yDQtJHYk)
 
-This histogram of the YearDifference shows the frequency of the number of years the company was private before appearing in the IPO. We can see that most were private for only a small number of years, mainly 0, before appearing in the IPO. There are few that remained public for a large number of years before appearing in the IPO. 
+This histogram of the YearDifference shows the frequency of the number of years the company was private before appearing in the IPO. We can see that most were private for only a small number of years, mainly 0, before appearing in the IPO. There are few that remained public for a large number of years before going IPO. 
 
 [![P4.jpg](https://i.postimg.cc/Qxv55P2r/P4.jpg)](https://postimg.cc/7fMfrBPB)
 
@@ -34,16 +34,18 @@ The IPO dataset consists of 3762 rows and 1664 columns. Each row corresponds to 
 - Age and gender of the CEO 
 - Age and gender of the president
 - Stock price data from day 0 to day 261
+- Financial data of the company after it went IPO
 <!-- list end-->
 Additionally, the dataset had to be cleaned to remove missing values.
 <ol> 
-<li> We first dropped all rows that contained blank values. </li>
+<li> We first dropped all the columns that contain the financial data of the company post-IPO (which accounted for a large proportion of the dataset) because they would be unusable since we were trying to predict the company's stock price pre-IPO.
+<li> We then dropped all rows that contained blank values. </li>
 <li> Afterwards, we removed rows that contained unknown as the value for CEO/president gender. </li>
 <li> Then, we dropped rows that had '-' as the value for number of employees. </li>
 <li> Finally, we removed negative values from the YearDifference column. </li>
 </ol>
 
-After cleaning, we were left with 1147 rows and 279 columns.      
+After cleaning, we were left with 1147 rows and 279 columns, which we considered a sufficient amount of data to work on. We think it might not be wise to impute missing data in this situation because there is a great deal of randomness in the movement of the stock price and even though the stock price's movement of each company may be dependent on each other, the stock price itself is not, making it very difficult to impute missing values.     
 
 ### **4. Model Effectiveness**
 
