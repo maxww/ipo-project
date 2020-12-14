@@ -18,7 +18,7 @@ b) For classification prediction:
 
 These 5 models would help us answer the following questions: How should we approach the problem of IPO Success Prediction? How successful can we be if we try to predict real value increases/decreases? In other words, on our best continuous-value prediction model, how far off are our predictions from the true increases/decreases? Should we use continuous-value prediction models but turn them into classification problems instead, or will traditional classification models help achieve lower misclassification rates?
 
-As our final stretch, we did not want to waste the price data for the whole year, so we would be using the data for our simple trading strategy. In the end, we would check to see how well we did after 262 days of trading.
+As our final stretch, we did not want to waste the price data for the whole year and we also took inspiration from the 4741 Trend Trade Project. We would be using the data for our simple trading strategy. In the end, we would check to see how well we did after 262 days of trading.
 
 ### **2. The Dataset:**
 
@@ -39,9 +39,9 @@ The IPO dataset consists of 3762 rows and 1664 columns. Each row corresponds to 
 Below is our process of cleaning the dataset:
 <ol> 
 <li> We first dropped all the columns that contain the financial data of the company post-IPO (which accounted for a large proportion of the dataset) because they would be unusable since we were trying to predict the company's stock price pre-IPO.
-<li> In order to get the most out of our data, we decided to impute missing values using Gaussian Copula for the columns that were of ordinal types, namely: Year, Month, Day, dayOfWeek, yearDifference, USACompany, YearFounded, CEOAge, CEOGender, PresidentAge, PresidentGender. 
+<li> Missing value imputation technique: In order to get the most out of our data, we decided to impute missing values using Gaussian Copula for the columns that were of ordinal types, namely: Year, Month, Day, dayOfWeek, yearDifference, USACompany, YearFounded, CEOAge, CEOGender, PresidentAge, PresidentGender. 
 <li> We then dropped all rows that contained blank values for the other columns. </li>
-<li> Finally, we removed negative values from the YearDifference column. </li>
+<li> Finally, we removed negative values from the YearDifference column because those data did not make sense. </li>
 </ol>
 
 ### **4. Feature Selection:**
@@ -54,11 +54,13 @@ Figure 1: Correlation Matrix
 
 ### **5. Models Used:**
 
-For feature engineering, we chose to transform several nominal features. Since CEOGender, PresidentGender, Industry and Sector are categorical data, we used one-hot-encoding in order to include them in the linear model. 
+For feature engineering, we chose to transform several nominal features. Since CEOGender, PresidentGender, Industry and Sector are categorical data, we used one-hot-encoding in order to include them in the linear model.
+
+We then randomly split our data into train set (70% of the data) and test set (30% of the data).
 
 ### a) <ins>Linear Regression</ins>
 
-Linear Regression was first attempted to predict a continuous value for the increase/decrease of the post-IPO stock at closing of day 0. 
+Linear Regression was first attempted to predict a continuous value for the increase/decrease of the post-IPO stock at closing of day 0.  
 
 Initial running of the linear regression model resulted in an MAE of 339.7852468493644. 
 
@@ -90,17 +92,17 @@ We also attempted Ridge Regression because it takes into account L2 regularizati
 
 Figure 4: Ridge Regression Model (Initial Run)
 
-For the continuous value prediction problem, Ridge Regression produced a MAE of 231.9012842889374, which was lower than Linear Regression but higher than Random Forest.
+For the continuous value prediction problem, on its initial run, Ridge Regression produced a MAE of 231.9012842889374, which was lower than Linear Regression but higher than Random Forest.
 
 Additionally, for classification, Ridge Regression had a misclassification rate of 0.5677179962894249. The balanced accuracy, on the other hand, was 0.5677179962894249. 
 
 ### d) <ins>Support Vector Machines</ins>
 
-In order to further explore the classification problem, we decided to run SVM. SVM produced a misclassification rate of 0.20037105751391465 and a balanced accuracy score of 0.5.
+In order to further explore the classification problem, we decided to run SVM. SVM produced a misclassification rate of 0.20037105751391465 and a balanced accuracy score of 0.5 for initial run.
 
 ### e) <ins>Logistic Regression</ins>
 
-Finally, we also used Logistic Regression. The logistic model had a misclassification rate of 0.20593692022263452 and a balanced accuracy score of 0.49998925839993125. 
+Finally, we also used Logistic Regression. The logistic model had a misclassification rate of 0.20593692022263452 and a balanced accuracy score of 0.49998925839993125 for initial run. 
 
 ### **6. Testing for Model Effectiveness and Cross Validation**
 
