@@ -41,7 +41,7 @@ Below is our process of cleaning the dataset:
 <li> We first dropped all the columns that contain the financial data of the company post-IPO (which accounted for a large proportion of the dataset) because they would be unusable since we were trying to predict the company's stock price pre-IPO.
 <li> Missing value imputation technique: In order to get the most out of our data, we decided to impute missing values using Gaussian Copula for the columns that were of ordinal types, namely: Year, Month, Day, dayOfWeek, yearDifference, USACompany, YearFounded, CEOAge, CEOGender, PresidentAge, PresidentGender. 
 <li> We then dropped all rows that contained blank values for the other columns. </li>
-<li> Finally, we removed negative values from the YearDifference column because those data did not make sense. </li>
+<li> Finally, we removed negative values from the YearDifference column because those data did not make sense since the company could not go IPO before it was founded. </li>
 </ol>
 
 ### **4. Feature Selection:**
