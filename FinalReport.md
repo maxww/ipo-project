@@ -138,19 +138,19 @@ We used log returns instead of raw returns in the formula because in finance, lo
 
 Below are the log returns of the 10 stocks we picked:
 
-[![portfolio.jpg](https://i.postimg.cc/prZDrVfF/portfolio.jpg)](https://postimg.cc/SYnXthtS)
+[![stock.jpg](https://i.postimg.cc/HkYssybs/stock.jpg)](https://postimg.cc/vcKd0DPp)
 
 Figure 5: Log Returns of Stocks
 
 After executing our trading strategy, this is the performance of our portfolio's log returns after 262 trading days:
 
-[![stock.jpg](https://i.postimg.cc/gcSjz6RK/stock.jpg)](https://postimg.cc/c630TCFK)
+[![portfolio.jpg](https://i.postimg.cc/FFb4dKrf/portfolio.jpg)](https://postimg.cc/ThPSBfWG)
 
 Figure 6: Log Returns of Portfolio
 
 This is the statistics of our portfolio's performance, which does not look too bad: 
 
-[![stock-stats.jpg](https://i.postimg.cc/85Y23DJL/stock-stats.jpg)](https://postimg.cc/phDchwBd)
+[![stock-stats.jpg](https://i.postimg.cc/pXqMC1nR/stock-stats.jpg)](https://postimg.cc/vcgKHhzN)
 
 Figure 7: Statistics of Portfolio's Log Returns 
 
