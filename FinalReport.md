@@ -18,7 +18,7 @@ b) For classification prediction:
 
 These 5 models would help us answer the following questions: How should we approach the problem of IPO Success Prediction? How successful can we be if we try to predict real value increases/decreases? In other words, on our best continuous-value prediction model, how far off are our predictions from the true increases/decreases? Should we use continuous-value prediction models but turn them into classification problems instead, or will traditional classification models help achieve lower misclassification rates?
 
-As our final stretch, we did not want to waste the price data for the whole year and we also took inspiration from the 4741 Trend Trade Project. We would be using the data for our simple trading strategy. In the end, we would check to see how well we did after 262 days of trading.
+As our final stretch, we did not want to waste the price data for the whole year and we also took inspiration from the 4741 Trend Trade Project. We would be using the data for our simple trading strategy. In addition, we would be using our findings and the model with the lowest misclassification rate to pick the stocks for our portfolio. In the end, we would check to see how well we did after 262 days of trading.
 
 ### **2. The Dataset:**
 
