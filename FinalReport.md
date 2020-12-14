@@ -122,7 +122,7 @@ Five fold cross validation was performed in order to prevent overfitting. The re
 | Logistic | - | 0.2205 ± 0.0302 | 0.4988 ± 0.0012 |
 <br>
 
-As can be observed from the above, the model that performed best for predicting continuous values was Ridge Regression, as average MAE was lowest. However, for the classification problem, the best performing model was Random Forest, with an average misclassification rate of 0.2093. From our MAEs, we could see that the discrepancy between the predicted values and the actual values varied greatly among the folds, which reflected the random nature of stock price and further reinforced that we should not use our models to predict continuous values.
+As can be observed from the above, the model that performed best for predicting continuous values was Ridge Regression, as average MAE was lowest. However, for the classification problem, the best performing model was Random Forest, with an average misclassification rate of 0.2093. From our MAEs, we could see that the discrepancy between the predicted values and the actual values varied greatly among the folds, which reflected the random nature of stock price and further reinforced that we should not use our models to predict continuous values. It should also be noted that even though most of our models performed better than chance (with misclassification rates lower than 50%), our balanced accuracy scores across all models were not too decent, only hovering around 50%, which could be explained by the imbalance nature of the classes in our dataset.
 
 ### **7. Trading Strategy:**
 
