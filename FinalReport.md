@@ -3,7 +3,7 @@
 <br>
 
 ### **1. Introduction and Description of the Problem:**
-An Initial Public Offering (IPO) is the first sale of stocks issued by a company to the public. IPO stocks can be very volatile in the days immediately after an IPO. For this project, we were trying to build several models to predict the success of IPOs according to our criterion: There was a strict increase in the stock price after the first day. The list of potential features was the little information available to the public pre-IPO, which included: month, day, day of the week, number of years since the company was founded, whether or not it is a US company, the sector the company is in, the industry the company is in, the CEO's age, the CEO's gender, the President's age, the President's gender, the number of years the company had been operating before going IPO, and the offering price. We would be applying what we had learned in class into our project, including missing value imputation using Gaussian Copula, feature engineering, loss function minimization, regularization, and cross validation. The 5 models that we were going to implement were:
+An Initial Public Offering (IPO) is the first sale of stocks issued by a company to the public. IPO stocks can be very volatile in the days immediately after an IPO. For this project, we were trying to build several models to predict the success of IPOs according to our criterion: There was a strict increase in the stock price after the first day. The list of potential features was the little information available to the public pre-IPO, which included: month, day, day of the week, number of years since the company was founded, number of employees, whether or not it is a US company, the sector the company is in, the industry the company is in, the CEO's age, the CEO's gender, the President's age, the President's gender, the number of years the company had been operating before going IPO, and the offering price. We would be applying what we had learned in class into our project, including missing value imputation using Gaussian Copula, feature engineering, loss function minimization, regularization, and cross validation. The 5 models that we were going to implement were:
 
 a) For continuous-value prediction: We would try to approach the problem in 2 ways for these 3 models: predicting real value increase/decrease and classifying whether or not there was an increase because it is very hard to predict real continuous values considering the random nature of stock price's movement.
 1. Linear Regression, which is the most simple model and also a common one used in practice but is subject to outliers;
@@ -28,7 +28,8 @@ The IPO dataset consists of 3762 rows and 1664 columns. Each row corresponds to 
 - Year the company was founded 
 - Years between founding and IPO
 - Business sector 
-- Industry within the sector 
+- Industry within the sector
+- Number of employees
 - Age and gender of the CEO 
 - Age and gender of the president
 - Stock price data from day 0 to day 261
@@ -46,7 +47,7 @@ Below is our process of cleaning the dataset:
 
 ### **4. Feature Selection:**
 
-The features used were ‘Month’, ‘Day'’, ‘dayOfWeek’, ‘yearDifference’, ‘CEOAge’, ‘PresidentAge’, ‘openDay0’, ‘CEOGender’, ‘PresidentGender’, ‘Industry’ and ‘Sector’. We chose these features because they were the only information that was available to the public pre-IPO. According to an expert we consulted, IPO's stock price could be very cyclical, hence we chose to include features such as ‘Month’, ‘Day'’, ‘dayOfWeek’. We also thought that investors would be more eager to invest in the company if they knew that the company's CEO and President were of old age, which might indicate how experienced the management team was and how long they had been in the field. We thought that the CEO and President's genders might also be important since until the present day, women leaders are still not as highly regarded as male leaders. The industry and sector would also be crucial in predicting the stock price because investors would tend to be more bullish to some industries and sectors than others. Finally, the market might show a keener interest in companies that had been around for while before going IPO because there would be more information about the company on the news compared to newly founded startups, hence we chose ‘yearDifference’ as one of our features. Below is a coefficient matrix for ordinal features after we imputed missing values. 
+The features used were ‘Month’, ‘Day'’, ‘dayOfWeek’, ‘yearDifference’, 'employees', ‘CEOAge’, ‘PresidentAge’, ‘openDay0’, ‘CEOGender’, ‘PresidentGender’, ‘Industry’ and ‘Sector’. We chose these features because they were the only information that was available to the public pre-IPO. According to an expert we consulted, IPO's stock price could be very cyclical, hence we chose to include features such as ‘Month’, ‘Day'’, ‘dayOfWeek’. We reckoned that investors might be interested in the size of the company, which could be reflected from the number of employees. We also thought that investors would be more eager to invest in the company if they knew that the company's CEO and President were of old age, which might indicate how experienced the management team was and how long they had been in the field. We thought that the CEO and President's genders might also be important since until the present day, women leaders are still not as highly regarded as male leaders. The industry and sector would also be crucial in predicting the stock price because investors would tend to be more bullish to some industries and sectors than others. Finally, the market might show a keener interest in companies that had been around for while before going IPO because there would be more information about the company on the news compared to newly founded startups, hence we chose ‘yearDifference’ as one of our features. Below is a coefficient matrix for ordinal features after we imputed missing values. 
 
 [![correlation-matrix.jpg](https://i.postimg.cc/W4Z2cTJm/correlation-matrix.jpg)](https://postimg.cc/TyR8r80h)
 
@@ -114,9 +115,9 @@ Five fold cross validation was performed in order to prevent overfitting. The re
 
 | Model | MAE | Misclassification Rate | Balanced Accuracy |
 |-|-|-|-|
-| Linear Regression | 17689.34 ± 9703.56 | 0.3931 ± 0.0303 | 0.4771 ± 0.0836 |
-| Random Forest | 19059.55 ± 18938.19 | 0.2093 ± 0.0078 | 0.5 ± 0.0 |
-| Ridge | 7582.9 ± 6775.54 | 0.3669 ± 0.0453 | 0.5062 ± 0.0456 |
+| Linear Regression | 19489.27 ± 19294.18 | 0.3931 ± 0.0303 | 0.4771 ± 0.0836 |
+| Random Forest | 23746.62 ± 17738.97 | 0.2093 ± 0.0078 | 0.5 ± 0.0 |
+| Ridge | 7910.02 ± 7734.85 | 0.3669 ± 0.0453 | 0.5062 ± 0.0456 |
 | SVM | - | 0.2166 ± 0.0146 | 0.4996 ± 0.0004 |
 | Logistic | - | 0.2205 ± 0.0302 | 0.4988 ± 0.0012 |
 <br>
