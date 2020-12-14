@@ -54,11 +54,11 @@ Figure 1: Correlation Matrix
 
 ### **5. Models Used:**
 
+For feature engineering, we chose to transform several nominal features. Since CEOGender, PresidentGender, Industry and Sector are categorical data, we used one-hot-encoding in order to include them in the linear model. 
+
 ### a) <ins>Linear Regression</ins>
 
 Linear Regression was first attempted to predict a continuous value for the increase/decrease of the post-IPO stock at closing of day 0. 
-
-For feature engineering, we chose to transform several nominal features. Since CEOGender, PresidentGender, Industry and Sector are categorical data, we used one-hot-encoding in order to include them in the linear model. 
 
 Initial running of the linear regression model resulted in an MAE of 339.7852468493644. 
 
