@@ -149,9 +149,7 @@ This is the statistics of our portfolio's performance, which does not look too b
 
 [![stock-stats.jpg](https://i.postimg.cc/85Y23DJL/stock-stats.jpg)](https://postimg.cc/phDchwBd)
 
-Figure 7: Statistics of Portfolio's Log Returns
-
-However, for this strategy, we did not take into account many real-life constraints (eg: transaction costs). We could also optimize our strategy further by considering allocating different weights for our portfolio instead of allocating the same amount of money to all the stocks.   
+Figure 7: Statistics of Portfolio's Log Returns 
 
 ### **8. Discussion on Weapon of Math Destruction and Fairness:**
 
@@ -166,6 +164,8 @@ The issue of fairness was a concerning factor in our creation of the models. Owi
 ### **9. Conclusion and Confidence in Results:**
 
 Except for linear regression, most of our models had a misclassification rate of below 50%, which was better than chance. Our 5-fold cross validation results showed that ridge regression was the best performing model when we left the problem as a continuous value prediction problem, and random forest was the best performing model when we reframed it into a classification problem. However, balanced accuracy score for our random forest model was not high, only averaging 0.5. This is because of the imbalanced nature of our dataset as explained above in part 5. Therefore, we are not very confident with our results because the dataset we chose to analyze was not well-collected. Hence, we would recommend further exploration of the subject matter before using our models and findings in production in an enterprise or business setting.
+
+As for our strategy, we did not take into account many real-life constraints (eg: transaction costs), so our results might not be too realistic. We could also optimize our strategy further by considering allocating different weights for our portfolio instead of allocating the same amount of money to all the stocks.  
 
 ### **10. References:**
 
