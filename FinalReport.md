@@ -84,7 +84,7 @@ However, if we instead reframed this problem as a classification problem for inc
 
 ### c) <ins>Ridge Regression</ins>
 
-We also attempted Ridge Regression. 
+We also attempted Ridge Regression because it takes into account L2 regularization, which could help us prevent overfitting. We chose an alpha of 0.00001 for our parameter.
 
 [![download-2.png](https://i.postimg.cc/L8q3kQrP/download-2.png)](https://postimg.cc/gxWhmscc)
 
