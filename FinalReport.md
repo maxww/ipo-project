@@ -103,7 +103,7 @@ For the readers' convenience, we had drawn the line y=x in the graph. The points
 
 From the results above, it can be interpreted that regression might be too challenging with our current amount of data. This led us to think - would our models perform better if we only considered whether the price had gone up or down? We could therefore reframe the problem into one of classification, where we would try to predict an increase or decrease in the stock price post-opening rather than a continuous value. 
 
-A new dataframe was thus created with the predictions and actual values, as well as the predicted and actual difference between open and close. This resulted in a misclassification rate of 0.5797101449275363. We also noticed that a large portion of the values predicted were higher than the true values.
+A new dataframe was thus created with the predictions and actual values, as well as the predicted and actual difference between open and close. The result would be "correctly classified" if the product of the predicted value and the true value was greater than 0, meaning that the values moved in the same direction. This resulted in a misclassification rate of 0.5797101449275363. We also noticed that a large portion of the values predicted were higher than the true values.
 
 ### b) <ins>Random Forest</ins>
 
@@ -204,7 +204,7 @@ Except for linear regression, most of our models had a misclassification rate of
 
 Regarding the continuous value prediction problem, we are not very confident in our results. This is due to large MAE values coupled with a high discrepancy between the predicted and the actual price. However, once we reframed this problem as a classification problem, our models were far more effective, and we are confident in their performance. Three models (Random Forest, SVM, and Logistic Regression) produced consistently good results across five different folds, and we therefore believe that the consistently strong performance across all folds indicates that the performance observed was not a fluke. We would thus be willing to use our models in production and make decisions in a business setting. Nonetheless, we would also recommend further exploration of the subject matter.
 
-As for our trading strategy, we did not take into account many real-life constraints (eg: transaction costs), so our results might not be too realistic. Nonetheless, hit serves as an actionable proof of concept and could definitely be modified to include these constraints. We could also optimize our strategy further by considering allocating different weights for our portfolio instead of allocating the same amount of money to all the stocks.
+As for our trading strategy, we did not take into account many real-life constraints (eg: transaction costs), so our results might not be too realistic. Nonetheless, hit serves as an actionable proof of concept and could definitely be modified to include these constraints. We could also optimize our strategy further by considering allocating different weights for our portfolio instead of allocating the same amount of money to all the stocks. 
 
 ### **10. References:**
 
